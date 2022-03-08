@@ -1,4 +1,4 @@
-package com.example.mylnu.ui.login;
+package  com.example.mylnu.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.
