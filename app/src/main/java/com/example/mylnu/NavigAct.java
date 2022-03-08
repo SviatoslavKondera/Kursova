@@ -1,6 +1,7 @@
 package com.example.mylnu;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -38,7 +39,8 @@ public class NavigAct extends AppCompatActivity {
         binding.appBarNavig.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Функція в розробці", Snackbar.LENGTH_LONG)
+                sendmail();
+                Snackbar.make(view, "Лист в підтримку надіслано.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -77,5 +79,21 @@ public class NavigAct extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navig);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+
+    public void sendmail() {
+
+        //QWerty123_45
+        //mylnu.service@gmail.com
+        String[] TO_EMAILS = {"mylnu.service@gmail.com"};
+
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, TO_EMAILS);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "My LNU підтримка");
+        startActivity(Intent.createChooser(intent, "Виберіть додаток для надсилання"));
+
     }
 }
