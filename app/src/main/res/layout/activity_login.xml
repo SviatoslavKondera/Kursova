@@ -16,9 +16,9 @@
         android:id="@+id/username"
         android:layout_width="326dp"
         android:layout_height="48dp"
-        android:layout_marginTop="404dp"
+        android:layout_marginTop="332dp"
         android:hint="@string/prompt_email"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -47,6 +47,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="64dp"
         android:enabled="true"
+        android:onClick="onClick"
         android:text="@string/action_sign_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,10 +72,13 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="329dp"
-        android:layout_height="114dp"
-        app:srcCompat="@drawable/long_logo"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="210dp" />
+        android:layout_width="328dp"
+        android:layout_height="118dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/long_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

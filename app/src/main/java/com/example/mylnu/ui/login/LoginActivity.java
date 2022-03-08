@@ -3,6 +3,8 @@ package  com.example.mylnu.ui.login;
 import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -12,21 +14,25 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.widget.EditText;
+import com.example.mylnu.NavigAct;
 import com.example.mylnu.R;
 import com.example.mylnu.ui.login.LoginViewModel;
 import com.example.mylnu.ui.login.LoginViewModelFactory;
 import com.example.mylnu.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LoginViewModel loginViewModel;
-private ActivityLoginBinding binding;
+    private ActivityLoginBinding binding;
+    Button button;
+    EditText username;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,8 @@ private ActivityLoginBinding binding;
 
      binding = ActivityLoginBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
+
+
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -118,6 +126,10 @@ private ActivityLoginBinding binding;
                         passwordEditText.getText().toString());
             }
         });
+
+        username = (EditText) findViewById(R.id.username);
+        button = (Button) findViewById(R.id.login);
+        button.setOnClickListener(this);
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -128,5 +140,14 @@ private ActivityLoginBinding binding;
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        Intent intent = new Intent(this, NavigAct.class);
+        intent.putExtra("username",username.getText().toString());
+        startActivity(intent);
+
     }
 }
