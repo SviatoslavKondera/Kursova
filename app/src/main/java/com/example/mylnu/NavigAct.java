@@ -39,9 +39,9 @@ public class NavigAct extends AppCompatActivity {
         binding.appBarNavig.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendmail();
-                Snackbar.make(view, "Лист в підтримку надіслано.", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                sendmail(view);
+                /*Snackbar.make(view, "Лист в підтримку надіслано.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -82,7 +82,7 @@ public class NavigAct extends AppCompatActivity {
     }
 
 
-    public void sendmail() {
+    public void sendmail(View view) {
 
         //QWerty123_45
         //mylnu.service@gmail.com
