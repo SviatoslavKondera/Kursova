@@ -12,7 +12,7 @@
     <string name="title_activity_navig">NavigAct</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">My LNU</string>
+    <string name="nav_header_title">Myі LNU</string>
     <string name="stud_sur"></string>
 
     <string name="nav_header_desc">Navigation header</string>
@@ -21,4 +21,9 @@
     <string name="menu_home">Головна</string>
     <string name="menu_gallery">Розклад предметів</string>
     <string name="menu_slideshow">Календар</string>
+    <string name="monday">Пн</string>
+    <string name="tuesday">Вт</string>
+    <string name="wednesday">Ср</string>
+    <string name="thurthday">Чт</string>
+    <string name="friday">Пт</string>
 </resources>
