@@ -127,8 +127,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
-        username = (EditText) findViewById(R.id.username);
+
         button = (Button) findViewById(R.id.login);
+        username = (EditText) findViewById(R.id.username);
         button.setOnClickListener(this);
     }
 
@@ -145,8 +146,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
 
-        Intent intent = new Intent(this, NavigAct.class);
-        intent.putExtra("username",username.getText().toString());
+
+       // Intent intent = new Intent(this, NavigAct.class);
+        //intent.putExtra("username",username.getText().toString());
+        //startActivity(intent);
+
+        String user_n_str = username.getText().toString();
+
+        Intent intent = new Intent(getApplicationContext(), NavigAct.class);
+        intent.putExtra("username", user_n_str);
         startActivity(intent);
 
     }

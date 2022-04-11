@@ -3,6 +3,7 @@ package com.example.mylnu;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class NavigAct extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     private ActivityNavigBinding binding;
+    TextView textView ;
 
 
     @Override
@@ -36,6 +38,18 @@ public class NavigAct extends AppCompatActivity {
      setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarNavig.toolbar);
+
+        textView = (TextView) findViewById(R.id.textView);
+
+        // Pass Username to navigation
+        NavigationView navigationView2 = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView2.getHeaderView(0);
+        Intent intent = getIntent();
+        String user_name = intent.getStringExtra("username");
+        TextView navUsername = (TextView) headerView.findViewById(R.id.textView);
+        navUsername.setText(user_name);
+
+
         binding.appBarNavig.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,15 +70,13 @@ public class NavigAct extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        /*final TextView  textView = (TextView) findViewById(R.id.app_bar_navig);
-        Intent intent = getIntent();
-        String mystery = intent.getStringExtra("username");
-        textView.setText(mystery);*/
-        /*
-        NavigationView navigationView2 = (NavigationView) findViewById(R.id.nav_header_navig);
-        View headerView = navigationView2.getHeaderView(1);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.textView);
-        navUsername.setText("Your Text Here");*/
+
+
+
+
+
+
+
     }
 
     @Override
@@ -87,7 +99,6 @@ public class NavigAct extends AppCompatActivity {
         //QWerty123_45
         //mylnu.service@gmail.com
         String[] TO_EMAILS = {"mylnu.service@gmail.com"};
-
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));

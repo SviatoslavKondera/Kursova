@@ -12,7 +12,8 @@ import com.example.mylnu.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
 
-private FragmentSlideshowBinding binding;
+
+private FragmentSlideshowBinding binding;TextView textView ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ private FragmentSlideshowBinding binding;
     View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;
+
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
